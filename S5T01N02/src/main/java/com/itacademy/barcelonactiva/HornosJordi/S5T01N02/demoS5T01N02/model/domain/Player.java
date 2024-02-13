@@ -12,14 +12,18 @@ import java.util.List;
 @Table(name = "players")
 public class Player {
 
-    @Column(name="playerName")
-    private String namePlayer;
+    @Column(name="username")
+    private String username;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private Float winRate;
 
-    private List<Game> diceThrows;
+    public Player(String username){
+        this.username = username;
+        this.winRate = null;
+    }
 
 }

@@ -13,9 +13,21 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="firstDice")
-    private Integer dice1;
 
-    @Column(name="secondDice")
-    private Integer dice2;
+    @ManyToOne
+    private Player player;
+
+    @Column(name="firstDice", nullable= false)
+    private int dice1;
+
+    @Column(name="secondDice", nullable = false)
+    private int dice2;
+
+    //timestamp
+
+    public Game(Player player, int dice1, int dice2){
+        this.player = player;
+        this.dice1 = dice1;
+        this.dice2 = dice2;
+    }
 }
