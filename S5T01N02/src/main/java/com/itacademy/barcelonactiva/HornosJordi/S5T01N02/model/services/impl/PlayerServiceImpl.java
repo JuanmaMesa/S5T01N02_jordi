@@ -98,7 +98,7 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public void updatePlayer(Integer id, PlayerDTORequest playerDTO) {
         Player player = getPlayer(id);
-        Player playerEntityExisting = playerRepository.findByPlayerName(player.getUsername());
+        Player playerEntityExisting = playerRepository.findByUsername(player.getUsername());
         if(playerEntityExisting != null){
             if(playerEntityExisting.getId() != player.getId()){
                 throw new UsernameInUsedException("username no disponible");
